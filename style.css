@@ -1,0 +1,127 @@
+body {
+    background-color: #FFDED4;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    font-family: 'Lato', sans-serif;
+
+}
+
+header h1 { 
+    text-align: center;
+    color: #403835;
+    font-size: 2rem;
+}
+header p {
+    text-align: center;
+    color: #403835;
+}
+.top p:nth-child(2) {
+    color: rgb(101, 238, 101);
+    
+}
+.formHolder {
+    width: 100%;
+    display: grid;
+    text-align: center;
+    justify-items: center;
+}
+form {
+    text-align: center;
+    width: 400px;
+}
+form input {
+    display: inline-block;
+    border: #E6C8BE 2px solid;
+    height: 30px;
+    width: 65%;
+    background-color: #BFA79F;
+    color: #403835;
+    font-weight: bold;
+
+
+}
+form button {
+    display: inline-block;
+    border: #E6C8BE 2px solid;
+    height: 36px;
+    background-color: #806F6A;
+    width: 16%;
+    color: #E6C8BE;
+    
+
+
+
+}
+.taskFeed {
+    padding-top: 20px;
+    display: grid;
+    width: 100%;
+    align-items: center;
+    justify-items: center;
+}
+.taskFeed li {
+    background-color: #E6C8BE;
+    display: grid;
+    grid-template-areas: 'task delete';
+    grid-template-columns: 2fr 1fr;
+    border: #403835 3px solid;
+    color: #403835;
+    height: 30px;
+    width: 300px;
+    margin: 3px;
+    align-items: center;
+    transition: all 0.75s ease;
+	-webkit-transition: all 0.5s ease;
+	-moz-transition: all 0.5s ease;
+	-ms-transition: all 0.5s ease;
+	-o-transition: all 0.5 ease;
+}
+
+.taskFeed li:hover {
+    background-color: #BFA79F;
+}
+
+.done {
+    background-color: rgb(101, 238, 101) !important;
+}
+.task  {
+    grid-area: task;
+    grid-column-start: 1;
+
+}
+.delete {
+    grid-area: delete;
+    grid-column-start: -1;
+    padding-right: 3px;
+
+}
+.delete:hover{
+    color: #333;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+@media (max-width: 370px) { 
+    form input {
+    width: 47%;
+    }
+    form button {
+        width: 14%;
+    }
+ }
+
+/* Medium devices (tablets, 768px and up) */
+@media (min-width: 768px) { 
+
+ }
+
+/* Large devices (desktops, 992px and up) */
+@media (min-width: 992px) { 
+
+ }
+
+/* Extra large devices (large desktops, 1200px and up) */
+@media (min-width: 1200px) { 
+
+ }
