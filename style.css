@@ -53,6 +53,17 @@ form button {
 
 
 }
+.radioGroup {
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    justify-content: space-around;
+    border: 0;
+    width: 93%;
+    align-self: center;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+}
+
 .taskFeed {
     padding-top: 20px;
     display: grid;
@@ -109,19 +120,7 @@ form button {
     form button {
         width: 14%;
     }
- }
-
-/* Medium devices (tablets, 768px and up) */
-@media (min-width: 768px) { 
-
- }
-
-/* Large devices (desktops, 992px and up) */
-@media (min-width: 992px) { 
-
- }
-
-/* Extra large devices (large desktops, 1200px and up) */
-@media (min-width: 1200px) { 
-
+    .radioGroup {
+        width: 84%;
+    }
  }

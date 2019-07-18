@@ -2,6 +2,7 @@ const list = document.querySelector('.taskFeed');
 const forms = document.forms;
 const items = JSON.parse(localStorage.getItem('items')) || [];
 const addForm = forms['addTask'];
+const radioGroup = document.querySelector('.radioGroup');
 
 function newTask(e){
   e.preventDefault();
@@ -24,7 +25,6 @@ function newTask(e){
   li.appendChild(taskText);
   li.appendChild(deleteBtn);
   list.insertBefore(li, list.querySelector('li:first-child'));
-
   
   const item = {text: value, done: false};
   items.unshift(item);
@@ -33,6 +33,7 @@ function newTask(e){
   document.getElementById("addTask").reset();
 
 }
+
 function populateList(tasks = [], list) {
   list.innerHTML = tasks.map((task) => {
     return `
@@ -54,12 +55,34 @@ function deleteTask(e){
       items.splice(i, 1);
       localStorage.setItem('items', JSON.stringify(items));    
   }
-  
-  /* if(list.children.length == 0){
-    localStorage.clear();
-  } */
 } 
-// mark as complete
+
+function radioButtons(e){
+  const taskLi = document.querySelectorAll('li');
+  const el = e.target;
+  taskLi.forEach(li => {
+    if(el.checked && el.value == "value1"){
+        li.style.display = "";
+    }
+    else if(el.checked && el.value == "value2") {
+       if(li.classList.contains('done')){
+         li.style.display = "";
+       }
+       else if (!li.classList.contains('done')){
+         li.style.display = "none";
+       }
+    }
+    else if(el.checked && el.value == "value3") {
+       if(li.classList.contains('done')){
+          li.style.display = "none";
+       }
+       else if(!li.classList.contains('done')){
+        li.style.display = "";
+       }
+    }
+  })
+}
+
 function completeList(e) {
   const targetLi = e.target.tagName === 'LI' ? e.target : e.target.parentElement;
   const lisArr = Array.from(list.children);
@@ -71,7 +94,6 @@ function completeList(e) {
     if(li.contains(e.target)){
       li.classList.toggle('done');
       items[index].done = !items[index].done;
-      populateList(items, list);
       localStorage.setItem('items', JSON.stringify(items));
     }
   });
@@ -80,5 +102,6 @@ function completeList(e) {
 addForm.addEventListener('submit', newTask);
 list.addEventListener('click', deleteTask);
 list.addEventListener('click', completeList);
+radioGroup.addEventListener('click', radioButtons);
 
 populateList(items, list);
