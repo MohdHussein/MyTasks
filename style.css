@@ -33,6 +33,8 @@ form {
     justify-items: center;
     grid-template-columns: 1fr 50px;
     justify-content: space-around;
+    align-items: center;
+    grid-gap: 8px;
 
 }
 form input {
@@ -43,9 +45,14 @@ form input {
     color: #403835;
     font-weight: bold;
     width: 100%;
+    border-radius: 5px;
 
 
 
+}
+::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+  color: #403835;
+  opacity: 1; /* Firefox */
 }
 form button {
     display: inline-block;
@@ -54,6 +61,7 @@ form button {
     background-color: #806F6A;
     color: #E6C8BE;
     width: 100%;
+    border-radius: 5px;
 
 }
 .radioHolder {
